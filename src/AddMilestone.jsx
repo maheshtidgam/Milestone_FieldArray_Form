@@ -18,7 +18,7 @@ const validationSchema = Yup.object({
     ),
 })
 
-const EditMilestoneForm = ({ data, onClose, onUpdate, }) => {
+const EditMilestoneForm = ({ data, onClose, onUpdate, editIndex }) => {
     const [initialValues, setInitialValues] = useState({
         milestoneName: '',
         deliveries: [{ deliveryName: '' }],
@@ -68,7 +68,7 @@ const EditMilestoneForm = ({ data, onClose, onUpdate, }) => {
                 {({ values, errors, touched }) => (
                     <Form>
                         <div className='mb-4'>
-                            <label htmlFor="milestoneName" className='block font-medium mb-1'>Milestone3</label>
+                            <label htmlFor="milestoneName" className='block font-medium mb-1'>Milestone {editIndex + 1}</label>
                             <Field
                                 name="milestoneName"
                                 type="text"
@@ -183,7 +183,7 @@ const EditMilestoneForm = ({ data, onClose, onUpdate, }) => {
                         </FieldArray>
                         <div className='flex justify-end items-center mt-6'>
                             <button type="button" onClick={handleCancel} className='bg-white text-purple-500 border border-solid border-purple-500  px-4 py-2 rounded mr-4 hover:bg-gray-400'>Cancel</button>
-                            <button type="submit"  className='bg-white border border-solid border-purple-500 text-purple-500 px-4 py-2 rounded hover:bg-gray-400'>Submit</button>
+                            <button type="submit" className='bg-white border border-solid border-purple-500 text-purple-500 px-4 py-2 rounded hover:bg-gray-400'>Submit</button>
 
                         </div>
 

@@ -69,7 +69,7 @@ const MilestoneDisplay = () => {
 
     if (showEditForm) {
         return (
-            <AddMilestone data={editMilestone} onClose={() => setShowEditForm(false)} onUpdate={handleUpdateMilestone} />
+            <AddMilestone data={editMilestone} onClose={() => setShowEditForm(false)} onUpdate={handleUpdateMilestone} editIndex={editIndex} />
         )
     }
 
@@ -140,8 +140,11 @@ const MilestoneDisplay = () => {
 
                                         </div>
                                     ))}
-                                    <div className='flex flex-row justify-center items-center mb-4 p-4 rounded-xl shadow-lg' ><i className='fa fa-plus text-blue-600 cursor-pointer' aria-hidden="true"></i>
-                                        <button type="button" onClick={() => push({ sr_no: values.milestones.length + 1, milestoneName: '', weightage: '', milestoneCost: '', fundTransferAmount: '' })}>Add Milestone</button>
+                                    <div className='flex flex-row justify-center items-center mb-4 p-4 rounded-xl shadow-lg' >
+                                        <span className='bg-white shadow-lg border border-solid border-purple-500 hover:bg-indigo-50 text-purple-800 font-bold py-2 px-4 rounded'>
+                                            <i className='fa fa-plus text-blue-600 cursor-pointer' aria-hidden="true"></i>
+                                            <button type="button" onClick={() => push({ sr_no: values.milestones.length + 1, milestoneName: '', weightage: '', milestoneCost: '', fundTransferAmount: '' })}>Add Milestone</button>
+                                        </span>
 
                                     </div>
                                 </div>
